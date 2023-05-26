@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: rgb(245, 86, 0);
+  --bg-color: rgb(31, 34, 46);
+  --primary-text: rgb(246, 246, 246);
+  --secondary-text: rgb(255, 255, 255);
+  --tertiary-text: rgb(255, 255, 255);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: rgb(245, 86, 0);
+    --primary-text: rgb(246, 246, 246);
+    --secondary-text: rgb(255, 255, 255);
+    --tertiary-text: rgb(255, 255, 255);
+  }
+}
+
+@layer base {
+  body {
+    color: var(--primary-text);
+    grid-template-areas: "stack";
+  }
+  body > * {
+    grid-area: stack;
+  }
+}
+
+@layer components {
+  .logo {
+    clip-path: polygon(100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
+  }
+}
