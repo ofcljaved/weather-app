@@ -1,7 +1,7 @@
-export default function KeyboardKey({ label, className }) {
+export default function KeyboardKey({ label, paddingX }) {
   return (
     <div
-      className={`bg-slate-600 rounded-md py-2 shadow-key shadow-slate-50 ${className}`}
+      className={`flex bg-[--glass-bg] text-[--key-text] rounded-md py-0.5 shadow-key font-medium text-lg ${paddingX}`}
     >
       {label}
     </div>

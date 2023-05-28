@@ -11,7 +11,7 @@ module.exports = {
         layout: "auto 1fr auto",
       },
       boxShadow: {
-        key: "2px 2px 0.5px 1px",
+        key: "0.125rem 0.125rem 0.03125rem 0.0625rem rgba(238, 238, 238, 0.35)",
       },
     },
   },

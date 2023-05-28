@@ -3,16 +3,16 @@ import KeyboardKey from "./KeyboardKey";
 
 export default function SearchBar() {
   return (
-    <div className="flex items-center px-4 py-3 bg-slate-500 rounded-xl gap-4 cursor-pointer">
+    <div className="flex items-center px-3.5 py-2.5 bg-[--glass-bg] rounded-xl gap-4 cursor-pointer">
       <Image src="/search.svg" alt="Search Icon" width={30} height={30} />
       <input
         type="text"
         placeholder="Search locations..."
-        className="w-48 bg-transparent text-lg placeholder:text-[--primary-text] cursor-pointer"
+        className="w-48 bg-transparent text-[--tertiary-text] text-lg placeholder:text-[--tertiary-text] cursor-pointer focus:outline-none"
       />
       <div className="flex gap-3">
-        <KeyboardKey label={"Ctrl"} className="px-3" />
-        <KeyboardKey label={"K"} className="px-4" />
+        <KeyboardKey label={"Ctrl"} paddingX="px-1.5" />
+        <KeyboardKey label={"K"} paddingX="px-2.5" />
       </div>
     </div>
   );
