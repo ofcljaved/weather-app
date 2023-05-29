@@ -1,14 +1,16 @@
 import Image from "next/image";
-import { Lato } from "next/font/google";
 import SearchBar from "./SearchBar";
+import { lato } from "@/utils/font";
 
-const lato = Lato({ weight: ["400", "700"], subsets: ["latin"] });
-
-function Icon({ src, alt }) {
+function Icon({ src, alt, link }) {
   return (
-    <div className="relative w-14 h-14 bg-[--glass-bg] rounded-full grid place-items-center">
+    <a
+      href={link}
+      target="_blank"
+      className="relative w-14 h-14 bg-[--glass-bg] rounded-full grid place-items-center cursor-pointer"
+    >
       <Image src={`/${src}`} width={30} height={30} alt={alt} />
-    </div>
+    </a>
   );
 }
 
@@ -17,8 +19,16 @@ export default function Header() {
     <header className="flex justify-between items-start">
       <SearchBar />
       <div className="flex gap-5">
-        <Icon src={"github.svg"} alt={"Github Icon"} />
-        <Icon src={"dark_theme.svg"} alt={"Dark Theme Icon"} />
+        <Icon
+          src={"github.svg"}
+          alt={"Github Icon"}
+          link={"https://github.com/Ofcl-Javed"}
+        />
+        <Icon
+          src={"dark_theme.svg"}
+          alt={"Dark Theme Icon"}
+          link={"https://github.com/Ofcl-Javed"}
+        />
         <div
           className={`${lato.className} logo bg-[--primary-color] px-4 pt-4 pb-20 -mt-6`}
         >
