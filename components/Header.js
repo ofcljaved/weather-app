@@ -9,7 +9,7 @@ function Icon({ src, alt, link }) {
       target="_blank"
       className="relative w-14 h-14 bg-[--glass-bg] rounded-full grid place-items-center cursor-pointer"
     >
-      <Image src={`/${src}`} width={30} height={30} alt={alt} />
+      <Image src={`/icon/${src}`} width={30} height={30} alt={alt} />
     </a>
   );
 }

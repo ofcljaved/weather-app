@@ -11,7 +11,7 @@ export default function MainContent() {
       </h2>
       <button className="px-6 py-4 bg-[--primary-color] rounded-xl justify-self-start relative">
         <img
-          src="/point_arrow.svg"
+          src="/icon/point_arrow.svg"
           alt="Point toward search"
           className="absolute bottom-2/3 right-[calc(100%+1rem)]"
         />

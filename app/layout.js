@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         </section>
         <div className="-z-10 relative">
           <Image
-            src="/space-background.png"
+            src="/image/space-background.png"
             alt="Space Background with stars"
             fill={true}
           />
