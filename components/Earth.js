@@ -26,22 +26,22 @@ export default function Earth() {
   return (
     <>
       <ambientLight color="rgb(103,108,134)" />
-      <pointLight
+      <directionalLight
         color="rgb(255,238,204)"
         position={[-2, 0, 2]}
         intensity={3}
       />
       <mesh ref={cloudRef}>
-        <sphereGeometry args={[2.51, 100, 100]} />
+        <sphereGeometry args={[1.01, 100, 100]} />
         <meshPhysicalMaterial
           map={cloudsMap}
-          opacity={0.4}
+          opacity={0.5}
           transparent={true}
           depthWrite={true}
         />
       </mesh>
       <mesh ref={earthRef}>
-        <sphereGeometry args={[2.5, 100, 100]} />
+        <sphereGeometry args={[1, 100, 100]} />
         <meshPhysicalMaterial specularMap={specularMap} />
         <meshStandardMaterial
           map={colorMap}

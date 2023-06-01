@@ -5,7 +5,7 @@ import Earth from "./Earth";
 export default function EarthCanvas() {
   return (
     <div>
-      <Canvas>
+      <Canvas camera={{ fov: 20, position: [5, 5, 5] }}>
         <Suspense fallback={null}>
           <Earth />
         </Suspense>
