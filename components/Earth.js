@@ -19,16 +19,20 @@ export default function Earth() {
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
-    earthRef.current.rotation.y = elapsedTime / 12;
-    cloudRef.current.rotation.y = elapsedTime / 12;
+    earthRef.current.rotation.y = elapsedTime / 24;
+    cloudRef.current.rotation.y = elapsedTime / 18;
   });
 
   return (
     <>
-      <ambientLight intensity={0.1} />
-      <pointLight color="rgb(255,246,204)" position={[2, 0, 3]} intensity={3} />
+      <ambientLight color="rgb(103,108,134)" />
+      <pointLight
+        color="rgb(255,238,204)"
+        position={[-2, 0, 2]}
+        intensity={3}
+      />
       <mesh ref={cloudRef}>
-        <sphereGeometry args={[2.255, 100, 100]} />
+        <sphereGeometry args={[2.51, 100, 100]} />
         <meshPhysicalMaterial
           map={cloudsMap}
           opacity={0.4}
@@ -37,7 +41,7 @@ export default function Earth() {
         />
       </mesh>
       <mesh ref={earthRef}>
-        <sphereGeometry args={[2.25, 100, 100]} />
+        <sphereGeometry args={[2.5, 100, 100]} />
         <meshPhysicalMaterial specularMap={specularMap} />
         <meshStandardMaterial
           map={colorMap}
