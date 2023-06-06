@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="grid grid-cols-2 w-4/5 justify-self-center">
-        <WeatherContent />
-        {/* <MainContent /> */}
+      <main className="grid grid-cols-2 w-fit justify-self-center">
+        {/* <WeatherContent /> */}
+        <MainContent />
         {/* <EarthCanvas />  */}
       </main>
       <Footer />
