@@ -9,8 +9,8 @@ export default function Home() {
     <>
       <Header />
       <main className="grid grid-cols-2 w-fit justify-self-center">
-        {/* <WeatherContent /> */}
-        <MainContent />
+        <WeatherContent />
+        {/* <MainContent /> */}
         {/* <EarthCanvas />  */}
       </main>
       <Footer />

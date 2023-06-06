@@ -1,6 +1,6 @@
 export default function WeatherContent() {
   return (
-    <div className="grid gap-8 content-center grid-cols-3 grid-flow-dense font-medium text-xl text-[--tertiary-text] bg-red-400 self-center px-12 py-14 rounded-3xl w-fit">
+    <div className="grid gap-8 content-center grid-cols-3 grid-flow-dense font-medium text-xl text-[--tertiary-text] bg-[--glass-bg] self-center px-12 py-14 rounded-3xl w-fit tracking-wider">
       <h1 className="col-start-2 col-end-4 text-center text-7xl">
         24&#8451;|F
       </h1>
