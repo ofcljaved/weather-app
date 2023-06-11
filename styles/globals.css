@@ -5,11 +5,15 @@
 :root {
   --primary-color: rgb(245, 86, 0);
   --bg-color: rgb(31, 34, 46);
+  --bg-modal-color: rgb(49, 52, 68);
   --glass-bg: rgba(221, 221, 221, 0.15);
   --primary-text: rgb(246, 246, 246);
   --secondary-text: rgb(255, 255, 255);
   --tertiary-text: rgb(238, 238, 238);
-  --key-text: rgb(238, 238, 238, 0.8);
+  --modal-primary-text: rgb(222, 222, 222);
+  --modal-secondary-text: rgb(187, 187, 187);
+  --key-text: rgba(238, 238, 238, 0.8);
+  --blur-bg: rgba(100, 99, 134, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {

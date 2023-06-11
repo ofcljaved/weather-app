@@ -2,6 +2,7 @@ import EarthCanvas from "@/components/EarthCanvas";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MainContent from "@/components/MainContent";
+import SearchDialog from "@/components/SearchDialog";
 import WeatherContent from "@/components/WeatherContent";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         {/* <EarthCanvas />  */}
       </main>
       <Footer />
+      <SearchDialog />
     </>
   );
 }
