@@ -1,7 +1,6 @@
 import Image from "next/image";
 import SearchBar from "./SearchBar";
 import { lato } from "@/utils/font";
-import Footer from "./Footer";
 
 function Icon({ src, alt, link }) {
   return (

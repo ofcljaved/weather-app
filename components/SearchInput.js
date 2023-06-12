@@ -1,9 +1,8 @@
 import Image from "next/image";
-import React from "react";
 
 export default function SearchInput() {
   return (
-    <div className="p-6 shadow-line">
+    <div className="p-6 shadow-line-down">
       <div className="px-5 py-2.5 grid grid-cols-[max-content_auto_max-content] gap-5 bg-[--bg-modal-color] rounded-xl">
         <Image
           src="/icon/input_search.svg"
