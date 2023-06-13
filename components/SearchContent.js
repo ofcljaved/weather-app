@@ -1,8 +1,7 @@
 import Recent from "./Recent";
 
-const recent = localStorage.getItem("recent");
-
 export default function SearchContent() {
+  const recent = localStorage.getItem("recent");
   return (
     <div className="grid">
       {!recent ? (
