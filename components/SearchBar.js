@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import KeyboardKey from "./KeyboardKey";
 
@@ -7,6 +6,7 @@ export default function SearchBar() {
   const openModal = (event) => {
     document.querySelector("dialog").showModal();
   };
+
   return (
     <button
       onClick={openModal}

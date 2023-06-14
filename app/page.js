@@ -1,19 +1,16 @@
-import EarthCanvas from "@/components/EarthCanvas";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Main from "@/components/Main";
 import MainContent from "@/components/MainContent";
 import SearchDialog from "@/components/SearchDialog";
-import WeatherContent from "@/components/WeatherContent";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="grid grid-cols-2 w-fit justify-self-center">
-        <WeatherContent />
-        {/* <MainContent /> */}
-        {/* <EarthCanvas />  */}
-      </main>
+      <Main>
+        <MainContent />
+      </Main>
       <Footer />
       <SearchDialog />
     </>
