@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Main from "@/components/Main";
 import MainContent from "@/components/MainContent";
-import SearchDialog from "@/components/SearchDialog";
+import fetchWeather from "@/utils/WeatherApi";
 
 export default function Home() {
   return (
@@ -12,7 +12,6 @@ export default function Home() {
         <MainContent />
       </Main>
       <Footer />
-      <SearchDialog />
     </>
   );
 }
