@@ -1,10 +1,10 @@
 import Recent from "./Recent";
 
 export default function SearchContent() {
-  const recent = localStorage.getItem("recent");
+  const recent = false;
   return (
     <div className="grid">
-      {!recent ? (
+      {recent ? (
         <div className="grid gap-2.5 content-start">
           <h3 className="text-xl text-[--modal-primary-text] uppercase tracking-wider mx-6 my-3.5 font-semibold">
             Recent

@@ -3,25 +3,10 @@ import React, { useEffect, useRef } from "react";
 import SearchInput from "./SearchInput";
 import SearchFooter from "./SearchFooter";
 import SearchContent from "./SearchContent";
+import useDialog from "@/hooks/useDialog";
 
 export default function SearchDialog() {
-  const dialog = useRef(null);
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.ctrlKey && event.key === "k") {
-        event.preventDefault();
-        dialog.current.open
-          ? dialog.current.close()
-          : dialog.current.showModal();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+  const dialog = useDialog();
 
   return (
     <dialog
