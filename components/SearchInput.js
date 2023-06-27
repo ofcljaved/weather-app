@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function SearchInput() {
+export default function SearchInput(props) {
   return (
     <div className="p-6 shadow-line-down">
       <div className="px-5 py-2.5 grid grid-cols-[max-content_auto_max-content] gap-5 bg-[--bg-modal-color] rounded-xl">
@@ -14,6 +14,7 @@ export default function SearchInput() {
           type="text"
           placeholder="Search locations..."
           className="text-xl bg-[--bg-modal-color] outline-none font-medium text-[--modal-primary-text] placeholder:text-[--modal-secondary-text] tracking-wide"
+          {...props}
         />
         <button>
           <Image
