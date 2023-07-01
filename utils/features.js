@@ -14,7 +14,7 @@ export const fetchLocation = async (query) => {
   if (query.length <= 2) return false;
 
   try {
-    const data = await fetch(`/api/v1/search/?q=${query}`);
+    const data = await fetch(`/api/v1/search?q=${query}`);
     const response = await data.json();
     console.log(response);
     return response;

@@ -1,9 +1,7 @@
 import { debounce, fetchLocation } from "@/utils/features";
 import { useState } from "react";
 
-const debouncedSearch = debounce((text) => {
-  console.log(text);
-});
+const debouncedSearch = debounce(fetchLocation);
 
 export default function useInput(initialValue) {
   const [value, setValue] = useState(initialValue);
