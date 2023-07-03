@@ -11,7 +11,7 @@ export default function useInput(initialValue) {
       setValue("");
     } else {
       setValue(e.target.value);
-      debouncedSearch(e.target.value);
+      debouncedSearch(e.target.value.trim());
     }
   }
 

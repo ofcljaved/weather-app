@@ -1,3 +1,4 @@
+import ErrorHandler from "@/utils/ErrorHandler";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
@@ -7,12 +8,13 @@ export async function GET(request) {
     const res = await fetch(`http://localhost:4000/api/v1/search?q=${query}`);
     const data = await res.json();
     if (!data.result.length) {
-      throw new Error("No such Location");
+      throw new ErrorHandler("No such Location", 422);
     }
-    console.log(result);
-    return NextResponse.json(true);
+    return NextResponse.json(data.result);
   } catch (error) {
     console.log(error);
-    return NextResponse.json(false);
+    const errorResponse =
+      error.code === 422 ? error.message : "Currently search is not working";
+    return NextResponse.json(null, { errorResponse });
   }
 }
