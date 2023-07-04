@@ -6,6 +6,12 @@ export async function GET(request) {
     const { searchParams } = new URL(request.nextUrl);
     const query = searchParams.get("q");
     const res = await fetch(`http://localhost:4000/api/v1/search?q=${query}`);
+    if (res.status === 404) {
+      throw new ErrorHandler("API doesn't exist", res.status);
+    }
+    if (res.status === 500) {
+      throw new ErrorHandler("Internal server error", res.status);
+    }
     const data = await res.json();
     if (!data.result.length) {
       throw new ErrorHandler("No such Location", 422);
@@ -15,6 +21,6 @@ export async function GET(request) {
     console.log(error);
     const errorResponse =
       error.code === 422 ? error.message : "Currently search is not working";
-    return NextResponse.json(null, { errorResponse });
+    return NextResponse.json({ errorResponse }, { status: error.code || 500 });
   }
 }

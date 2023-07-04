@@ -6,12 +6,13 @@ const debouncedSearch = debounce(fetchLocation);
 export default function useInput(initialValue) {
   const [value, setValue] = useState(initialValue);
 
-  function handleChange(e) {
+  async function handleChange(e) {
     if (typeof e === "string") {
       setValue("");
     } else {
       setValue(e.target.value);
-      debouncedSearch(e.target.value.trim());
+      const searchResult = await debouncedSearch(e.target.value.trim());
+      console.log(searchResult);
     }
   }
 
