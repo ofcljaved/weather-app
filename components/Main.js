@@ -10,7 +10,7 @@ import useInput from "@/hooks/useInput";
 
 export default function Main({ children }) {
   const position = useGeoLocation();
-  const { value, onChange } = useInput("");
+  const { value, onChange, searchResult } = useInput("");
 
   return (
     <>
@@ -20,7 +20,7 @@ export default function Main({ children }) {
       </main>
       <SearchDialog>
         <SearchInput value={value} onChange={onChange} />
-        <SearchContent />
+        <SearchContent content={searchResult} />
         <SearchFooter />
       </SearchDialog>
     </>

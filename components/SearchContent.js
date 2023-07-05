@@ -1,6 +1,7 @@
 import Recent from "./Recent";
 
-export default function SearchContent() {
+export default function SearchContent({ content }) {
+  console.log(content);
   const recent = false;
   return (
     <div className="grid">

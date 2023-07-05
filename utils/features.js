@@ -4,9 +4,16 @@ export const debounce = (func, wait = 500) => {
   return (...args) => {
     clearTimeout(timeout);
 
-    timeout = setTimeout(() => {
-      func(...args);
-    }, wait);
+    return new Promise((resolve, reject) => {
+      timeout = setTimeout(async () => {
+        try {
+          const result = await func(...args);
+          resolve(result);
+        } catch (error) {
+          reject(error);
+        }
+      }, wait);
+    });
   };
 };
 
@@ -17,11 +24,11 @@ export const fetchLocation = async (query) => {
     const response = await fetch(`/api/v1/search?q=${query}`);
     const data = await response.json();
     if (!response.ok) {
-      throw new ErrorHandler(data.errorResponse);
+      throw new Error(data.errorResponse);
     }
     return data;
   } catch (error) {
     console.log(error);
-    return { error: error.message };
+    throw new Error(error.message);
   }
 };
