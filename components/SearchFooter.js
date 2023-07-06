@@ -5,7 +5,7 @@ function Key({ label }) {
 }
 export default function SearchFooter() {
   return (
-    <div className="flex gap-5 justify-end p-6 shadow-line-up">
+    <div className="flex gap-5 justify-end p-6 shadow-line-up self-end">
       <div className="flex gap-2.5 text-[--modal-primary-text] tracking-wide items-center">
         <Key label={<img src="/icon/enter.svg" alt="Enter" />} />
         <span>to select</span>

@@ -5,7 +5,9 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.nextUrl);
     const query = searchParams.get("q");
-    const res = await fetch(`http://localhost:4000/api/v1/search?q=${query}`);
+    const res = await fetch(
+      `http://localhost:4000/api/v1/search?q=${query}&limit=15`
+    );
     if (res.status === 404) {
       throw new ErrorHandler("API doesn't exist", res.status);
     }
