@@ -6,8 +6,7 @@ const NotFound = ({ text }) => (
   </p>
 );
 
-export default function SearchContent({ content }) {
-  console.log(content, "line 4 file SearchContent");
+export default function SearchContent({ content, selected }) {
   const recent = null;
   if (recent || content) {
     return (
@@ -18,11 +17,12 @@ export default function SearchContent({ content }) {
         <div className="grid gap-2.5 content-start overflow-auto pb-10">
           {content?.error && <NotFound text={content.error} />}
           {content?.result &&
-            content.result.map((location) => (
+            content.result.map((location, index) => (
               <SearchItem
                 type={"location"}
                 location={location}
                 key={location._id}
+                active={selected === index}
               />
             ))}
           {!content &&

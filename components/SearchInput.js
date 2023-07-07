@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function SearchInput({ value, onChange }) {
+export default function SearchInput({ value, onChange, onKeyDown }) {
   const handleClick = () => {
     onChange("");
   };
@@ -20,6 +20,7 @@ export default function SearchInput({ value, onChange }) {
           className="text-xl bg-[--bg-modal-color] outline-none font-medium text-[--modal-primary-text] placeholder:text-[--modal-secondary-text] tracking-wide"
           value={value}
           onChange={onChange}
+          onKeyDown={onKeyDown}
         />
         <button>
           <Image

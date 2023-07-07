@@ -7,10 +7,13 @@ import SearchFooter from "@/components/SearchFooter";
 import SearchContent from "@/components/SearchContent";
 import useGeoLocation from "@/hooks/useGeoLocation";
 import useInput from "@/hooks/useInput";
+import { useState } from "react";
+import useKeyNavigation from "@/hooks/useKeyNavigation";
 
 export default function Main({ children }) {
   const position = useGeoLocation();
   const { value, onChange, searchResult } = useInput("");
+  const { selected, onKeyDown } = useKeyNavigation(searchResult);
 
   return (
     <>
@@ -19,8 +22,8 @@ export default function Main({ children }) {
         {/* <EarthCanvas />  */}
       </main>
       <SearchDialog>
-        <SearchInput value={value} onChange={onChange} />
-        <SearchContent content={searchResult} />
+        <SearchInput value={value} onChange={onChange} onKeyDown={onKeyDown} />
+        <SearchContent content={searchResult} selected={selected} />
         <SearchFooter />
       </SearchDialog>
     </>
