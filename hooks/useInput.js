@@ -1,25 +1,13 @@
-import { debounce, fetchLocation } from "@/utils/features";
+import { fetchLocation } from "@/utils/features";
 import { useState } from "react";
-
-const debouncedSearch = debounce(fetchLocation);
+import { useDebounce } from "./useDebounce";
 
 export default function useInput(initialValue) {
   const [value, setValue] = useState(initialValue);
-  const [searchResult, setSearchResult] = useState(null);
+  const searchResult = useDebounce(value.trim(), fetchLocation);
 
-  async function handleChange(e) {
-    if (typeof e === "string") {
-      setValue("");
-      return;
-    }
-    setValue(e.target.value);
-    try {
-      const result = await debouncedSearch(e.target.value.trim());
-      result ? setSearchResult({ result }) : setSearchResult(null);
-    } catch (error) {
-      console.log(error);
-      setSearchResult({ error: error.message });
-    }
+  function handleChange(e) {
+    typeof e === "string" ? setValue("") : setValue(e.target.value);
   }
 
   const inputProps = {
