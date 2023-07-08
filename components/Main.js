@@ -6,14 +6,12 @@ import SearchInput from "@/components/SearchInput";
 import SearchFooter from "@/components/SearchFooter";
 import SearchContent from "@/components/SearchContent";
 import useGeoLocation from "@/hooks/useGeoLocation";
-import useInput from "@/hooks/useInput";
-import { useState } from "react";
-import useKeyNavigation from "@/hooks/useKeyNavigation";
+import useInputSearch from "@/hooks/useInputSearch";
 
 export default function Main({ children }) {
   const position = useGeoLocation();
-  const { value, onChange, searchResult } = useInput("");
-  const { selected, onKeyDown } = useKeyNavigation(searchResult);
+  const { value, onChange, searchResult, selected, onKeyDown, parentRef } =
+    useInputSearch("");
 
   return (
     <>
@@ -23,7 +21,11 @@ export default function Main({ children }) {
       </main>
       <SearchDialog>
         <SearchInput value={value} onChange={onChange} onKeyDown={onKeyDown} />
-        <SearchContent content={searchResult} selected={selected} />
+        <SearchContent
+          content={searchResult}
+          selected={selected}
+          parentRef={parentRef}
+        />
         <SearchFooter />
       </SearchDialog>
     </>
