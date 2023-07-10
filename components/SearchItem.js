@@ -19,9 +19,27 @@ export default function SearchItem({ type, location, active }) {
           {location.name}, {location.state.name}, {location.countryCode}
         </p>
       </button>
-      <button>
-        <Image src="/icon/close.svg" alt="Search Icon" width={30} height={30} />
-      </button>
+      {type === "location" ? (
+        active && (
+          <button>
+            <Image
+              src="/icon/enter.svg"
+              alt="Search Icon"
+              width={30}
+              height={30}
+            />
+          </button>
+        )
+      ) : (
+        <button>
+          <Image
+            src="/icon/close.svg"
+            alt="Search Icon"
+            width={30}
+            height={30}
+          />
+        </button>
+      )}
     </div>
   );
 }

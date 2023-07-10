@@ -23,14 +23,15 @@ export default function useKeyNavigation(list) {
         break;
       case "Enter":
         e.preventDefault();
+        console.log(list.result[selected]);
         break;
     }
   };
 
   useEffect(() => {
-    parentRef.current?.scrollTo({
-      top: parentRef.current?.children[selected].offset,
-      behavior: "smooth",
+    parentRef.current?.children[selected].scrollIntoView({
+      behavior: "auto",
+      block: "nearest",
     });
   }, [selected]);
 
