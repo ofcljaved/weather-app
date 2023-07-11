@@ -1,8 +1,11 @@
+import { updateUrlParams } from "@/utils/features";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-export default function useKeyNavigation(list) {
+export default function useKeyNavigation(list, dialog) {
   const [selected, setSelected] = useState(0);
   const parentRef = useRef();
+  const router = useRouter();
 
   const handleKeydown = (e) => {
     if (!list?.result) return;
@@ -23,7 +26,9 @@ export default function useKeyNavigation(list) {
         break;
       case "Enter":
         e.preventDefault();
-        console.log(list.result[selected]);
+        dialog.current.close();
+        const pathname = updateUrlParams(list.result[selected]);
+        router.push(pathname);
         break;
     }
   };
@@ -35,10 +40,13 @@ export default function useKeyNavigation(list) {
     });
   }, [selected]);
 
+  useEffect(() => {
+    setSelected(0);
+  }, [list]);
+
   const KeyProps = {
     selected,
     onKeyDown: handleKeydown,
-    setSelected,
     parentRef,
   };
 

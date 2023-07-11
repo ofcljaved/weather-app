@@ -6,7 +6,12 @@ const NotFound = ({ text }) => (
   </p>
 );
 
-export default function SearchContent({ content, selected, parentRef }) {
+export default function SearchContent({
+  content,
+  selected,
+  parentRef,
+  onClick,
+}) {
   const recent = null;
   if (recent || content) {
     return (
@@ -26,6 +31,7 @@ export default function SearchContent({ content, selected, parentRef }) {
                 location={location}
                 key={location._id}
                 active={selected === index}
+                onClick={onClick}
               />
             ))}
           {!content &&
@@ -34,6 +40,7 @@ export default function SearchContent({ content, selected, parentRef }) {
                 type={"history"}
                 location={location}
                 key={location._id}
+                onClick={onClick}
               />
             ))}
         </div>

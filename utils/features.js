@@ -12,3 +12,18 @@ export const fetchLocation = async (query) => {
     throw new Error(error.message);
   }
 };
+
+export const updateUrlParams = (location) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (location) {
+    urlParams.set("city", location.name);
+    urlParams.set("state", location.state.name);
+    urlParams.set("country", location.countryCode);
+  } else {
+    urlParams.delete("city");
+    urlParams.delete("state");
+    urlParams.delete("country");
+  }
+  const newPathname = `${window.location.pathname}?${urlParams.toString()}`;
+  return newPathname;
+};
