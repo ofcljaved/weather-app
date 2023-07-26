@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Main from "@/components/Main";
 import MainContent from "@/components/MainContent";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Header />
@@ -13,4 +13,6 @@ export default function Home() {
       <Footer />
     </>
   );
-}
+};
+
+export default Home;

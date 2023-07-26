@@ -34,7 +34,7 @@ export default function Main({ children }) {
         {position ? <WeatherContent /> : children}
         {/* <EarthCanvas />  */}
       </main>
-      <SearchDialog dialogRef={dialog}>
+      <SearchDialog>
         <SearchInput value={value} onChange={onChange} onKeyDown={onKeyDown} />
         <SearchContent
           content={searchResult}

@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
 import KeyboardKey from "./KeyboardKey";
+import useStore from "@/hooks/useStore";
 
 export default function SearchBar() {
-  const openModal = (event) => {
-    document.querySelector("dialog").showModal();
+  const { dialog } = useStore();
+  const openModal = () => {
+    dialog.current.showModal();
   };
 
   return (
