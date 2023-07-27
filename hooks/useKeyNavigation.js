@@ -1,34 +1,41 @@
 import { updateUrlParams } from "@/utils/features";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import useStore from "./useStore";
 
-export default function useKeyNavigation(list, dialog) {
-  const [selected, setSelected] = useState(0);
+export default function useKeyNavigation() {
+  const { dialog, searchResult } = useStore();
   const parentRef = useRef();
+
+  const [selected, setSelected] = useState(0);
   const router = useRouter();
 
+  const selectSearch = () => {
+    dialog.current.close();
+    const pathname = updateUrlParams(searchResult.result[selected]);
+    router.push(pathname);
+  };
+
   const handleKeydown = (e) => {
-    if (!list?.result) return;
+    if (!searchResult?.result) return;
     switch (e.code) {
       case "ArrowUp":
         e.preventDefault();
         selected === 0
-          ? setSelected(list.result.length - 1)
+          ? setSelected(searchResult.result.length - 1)
           : setSelected((prev) => prev - 1);
 
         break;
       case "ArrowDown":
         e.preventDefault();
-        selected === list.result.length - 1
+        selected === searchResult.result.length - 1
           ? setSelected(0)
           : setSelected((prev) => prev + 1);
 
         break;
       case "Enter":
         e.preventDefault();
-        dialog.current.close();
-        const pathname = updateUrlParams(list.result[selected]);
-        router.push(pathname);
+        selectSearch();
         break;
     }
   };
@@ -42,12 +49,13 @@ export default function useKeyNavigation(list, dialog) {
 
   useEffect(() => {
     setSelected(0);
-  }, [list]);
+  }, [searchResult]);
 
   const KeyProps = {
     selected,
     onKeyDown: handleKeydown,
     parentRef,
+    handleClick: selectSearch,
   };
 
   return KeyProps;

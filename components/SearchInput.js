@@ -1,6 +1,11 @@
 import Image from "next/image";
+import useInputSearch from "@/hooks/useInputSearch";
+import useKeyNavigation from "@/hooks/useKeyNavigation";
 
-export default function SearchInput({ value, onChange, onKeyDown }) {
+export default function SearchInput() {
+  const { value, onChange } = useInputSearch("");
+  const { onKeyDown } = useKeyNavigation();
+
   const handleClick = () => {
     onChange("");
   };

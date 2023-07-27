@@ -1,4 +1,7 @@
+"use client";
 import SearchItem from "./SearchItem";
+import useKeyNavigation from "@/hooks/useKeyNavigation";
+import useStore from "@/hooks/useStore";
 
 const NotFound = ({ text }) => (
   <p className="mt-10 text-xl text-[--modal-primary-text] tracking-wide text-center">
@@ -6,41 +9,40 @@ const NotFound = ({ text }) => (
   </p>
 );
 
-export default function SearchContent({
-  content,
-  selected,
-  parentRef,
-  onClick,
-}) {
+export default function SearchContent() {
+  const { searchResult } = useStore();
+
+  const { selected, parentRef, handleClick } = useKeyNavigation();
+  console.log(selected);
   const recent = null;
-  if (recent || content) {
+  if (recent || searchResult) {
     return (
       <>
         <h3 className="text-xl text-[--modal-primary-text] uppercase tracking-wider mx-6 my-3.5 font-semibold">
-          {content ? "Location" : "Recent"}
+          {searchResult ? "Location" : "Recent"}
         </h3>
         <div
           ref={parentRef}
           className="grid gap-2.5 content-start overflow-auto pb-10"
         >
-          {content?.error && <NotFound text={content.error} />}
-          {content?.result &&
-            content.result.map((location, index) => (
+          {searchResult?.error && <NotFound text={searchResult.error} />}
+          {searchResult?.result &&
+            searchResult.result.map((location, index) => (
               <SearchItem
                 type={"location"}
                 location={location}
                 key={location._id}
                 active={selected === index}
-                onClick={onClick}
+                onClick={handleClick}
               />
             ))}
-          {!content &&
+          {!searchResult &&
             recent.map((location) => (
               <SearchItem
                 type={"history"}
                 location={location}
                 key={location._id}
-                onClick={onClick}
+                onClick={handleClick}
               />
             ))}
         </div>
