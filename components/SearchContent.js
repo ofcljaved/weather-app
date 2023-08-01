@@ -10,10 +10,9 @@ const NotFound = ({ text }) => (
 );
 
 export default function SearchContent() {
-  const { searchResult } = useStore();
+  const { searchResult, selected } = useStore();
 
-  const { selected, parentRef, handleClick } = useKeyNavigation();
-  console.log(selected);
+  const { parentRef, handleClick } = useKeyNavigation();
   const recent = null;
   if (recent || searchResult) {
     return (
