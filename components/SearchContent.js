@@ -32,6 +32,7 @@ export default function SearchContent() {
                 location={location}
                 key={location._id}
                 active={selected === index}
+                index={index}
                 onClick={handleClick}
               />
             ))}
