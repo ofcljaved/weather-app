@@ -16,13 +16,15 @@
   --blur-bg: rgba(100, 99, 134, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: rgb(245, 86, 0);
-    --primary-text: rgb(246, 246, 246);
-    --secondary-text: rgb(255, 255, 255);
-    --tertiary-text: rgb(255, 255, 255);
-  }
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--bg-modal-color);
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 0 10rem hsla(0, 0%, 100%, 0.1) inset;
 }
 
 @layer base {
