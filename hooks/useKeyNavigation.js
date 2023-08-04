@@ -1,4 +1,3 @@
-import { updateUrlParams } from "@/utils/features";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import useStore from "./useStore";
@@ -11,8 +10,9 @@ export default function useKeyNavigation() {
 
   const selectSearch = () => {
     dialog.current.close();
-    const pathname = updateUrlParams(searchResult.result[selected]);
-    router.push(pathname);
+    const { name, state, countryCode } = searchResult.result[selected];
+    console.log(name, state, countryCode);
+    router.push(`/?city=${name}&state=${state.name}&country=${countryCode}`);
   };
 
   const handleKeydown = (e) => {

@@ -3,7 +3,8 @@ import Header from "@/components/Header";
 import Main from "@/components/Main";
 import MainContent from "@/components/MainContent";
 
-const Home = () => {
+const Home = async ({ searchParams }) => {
+  console.log(searchParams);
   return (
     <>
       <Header />
