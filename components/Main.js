@@ -5,12 +5,13 @@ import SearchDialog from "@/components/SearchDialog";
 import SearchFooter from "@/components/SearchFooter";
 import useGeoLocation from "@/hooks/useGeoLocation";
 
-export default function Main({ children }) {
-  const position = useGeoLocation();
+export default function Main({ weather, children }) {
+  console.log(weather);
+  // const position = useGeoLocation();
   return (
     <>
       <main className="grid grid-cols-2 w-fit justify-self-center">
-        {position ? <WeatherContent /> : children}
+        {weather ? <WeatherContent weather={weather} /> : children}
         {/* <EarthCanvas />  */}
       </main>
       <SearchDialog>
