@@ -1,10 +1,8 @@
 import { fetchLocation } from "@/utils/features";
 import { useEffect, useState } from "react";
 import { useDebounce } from "./useDebounce";
-import useStore from "./useStore";
 
-export default function useInputSearch(initialValue) {
-  const { setSearchResult } = useStore();
+export default function useInputSearch(initialValue, setSearchResult) {
   const [value, setValue] = useState(initialValue);
   const searchResult = useDebounce(value.trim(), fetchLocation);
 

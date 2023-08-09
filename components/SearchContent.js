@@ -1,6 +1,5 @@
 "use client";
 import SearchItem from "./SearchItem";
-import useKeyNavigation from "@/hooks/useKeyNavigation";
 import useStore from "@/hooks/useStore";
 
 const NotFound = ({ text }) => (
@@ -9,10 +8,8 @@ const NotFound = ({ text }) => (
   </p>
 );
 
-export default function SearchContent() {
+export default function SearchContent({ parentRef, handleClick }) {
   const { searchResult, selected } = useStore();
-
-  const { parentRef, handleClick } = useKeyNavigation();
   const recent = null;
   if (recent || searchResult) {
     return (

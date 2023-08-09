@@ -1,19 +1,9 @@
-import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import useStore from "./useStore";
 
 export default function useKeyNavigation() {
-  const { dialog, searchResult, selected, setSelected } = useStore();
+  const { searchResult, selected, setSelected, selectSearch } = useStore();
   const parentRef = useRef();
-
-  const router = useRouter();
-
-  const selectSearch = () => {
-    dialog.current.close();
-    const { name, state, countryCode } = searchResult.result[selected];
-    console.log(name, state, countryCode);
-    router.push(`/?city=${name}&state=${state.name}&country=${countryCode}`);
-  };
 
   const handleKeydown = (e) => {
     if (!searchResult?.result) return;
@@ -53,7 +43,7 @@ export default function useKeyNavigation() {
   const KeyProps = {
     onKeyDown: handleKeydown,
     parentRef,
-    handleClick: selectSearch,
+    selectSearch,
   };
 
   return KeyProps;
