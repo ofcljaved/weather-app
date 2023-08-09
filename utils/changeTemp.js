@@ -1,7 +1,13 @@
 export default function changeTemp(temp, unit) {
   console.log(temp, unit);
   if (unit === "fahrenheit") {
-    return Math.round((temp * 9) / 5) + 32;
+    for (const key in temp) {
+      temp[key] = (temp[key] * 9) / 5 + 32;
+    }
+    return temp;
   }
-  return Math.round(((temp - 32) * 5) / 9);
+  for (const key in temp) {
+    temp[key] = ((temp[key] - 32) * 5) / 9;
+  }
+  return temp;
 }
