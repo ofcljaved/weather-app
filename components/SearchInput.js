@@ -1,6 +1,9 @@
+import useStore from "@/hooks/useStore";
 import Image from "next/image";
 
-export default function SearchInput({ value, onChange, onKeyDown }) {
+export default function SearchInput({ onKeyDown }) {
+  const { value, onChange } = useStore();
+
   const handleClick = () => {
     onChange("");
   };

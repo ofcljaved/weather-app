@@ -8,14 +8,15 @@ const NotFound = ({ text }) => (
   </p>
 );
 
-export default function SearchContent({ parentRef, handleClick }) {
-  const { searchResult, selected } = useStore();
+export default function SearchContent({ parentRef }) {
+  const { value, searchResult, selected, selectSearch } = useStore();
+
   const recent = null;
-  if (recent || searchResult) {
+  if (value || searchResult) {
     return (
       <>
         <h3 className="text-xl text-[--modal-primary-text] uppercase tracking-wider mx-6 my-3.5 font-semibold">
-          {searchResult ? "Location" : "Recent"}
+          {value ? "Location" : "Recent"}
         </h3>
         <div
           ref={parentRef}
@@ -25,21 +26,12 @@ export default function SearchContent({ parentRef, handleClick }) {
           {searchResult?.result &&
             searchResult.result.map((location, index) => (
               <SearchItem
-                type={"location"}
+                type={value ? "location" : "history"}
                 location={location}
                 key={location._id}
                 active={selected === index}
                 index={index}
-                onClick={handleClick}
-              />
-            ))}
-          {!searchResult &&
-            recent.map((location) => (
-              <SearchItem
-                type={"history"}
-                location={location}
-                key={location._id}
-                onClick={handleClick}
+                onClick={selectSearch}
               />
             ))}
         </div>
