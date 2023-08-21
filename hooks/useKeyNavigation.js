@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import useStore from "./useStore";
+import { useEffect, useRef } from 'react';
+import useStore from './useStore';
 
 export default function useKeyNavigation() {
   const { searchResult, selected, setSelected, selectSearch } = useStore();
@@ -8,21 +8,21 @@ export default function useKeyNavigation() {
   const handleKeydown = (e) => {
     if (!searchResult?.result) return;
     switch (e.code) {
-      case "ArrowUp":
+      case 'ArrowUp':
         e.preventDefault();
         selected === 0
           ? setSelected(searchResult.result.length - 1)
           : setSelected((prev) => prev - 1);
 
         break;
-      case "ArrowDown":
+      case 'ArrowDown':
         e.preventDefault();
         selected === searchResult.result.length - 1
           ? setSelected(0)
           : setSelected((prev) => prev + 1);
 
         break;
-      case "Enter":
+      case 'Enter':
         e.preventDefault();
         selectSearch();
         break;
@@ -30,9 +30,9 @@ export default function useKeyNavigation() {
   };
 
   useEffect(() => {
-    parentRef.current?.children[selected].scrollIntoView({
-      behavior: "auto",
-      block: "nearest",
+    parentRef.current?.children[selected]?.scrollIntoView({
+      behavior: 'auto',
+      block: 'nearest',
     });
   }, [selected]);
 

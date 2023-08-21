@@ -14,9 +14,10 @@ export const StoreProvider = ({ children }) => {
 
   const { value, onChange } = useInputSearch('', (value, result) => {
     if (value.trim()) {
-      setSearchResult(JSON.parse(localStorage.getItem('recents')));
-    } else {
       setSearchResult(result);
+    } else {
+      const recents = JSON.parse(localStorage.getItem('recents'));
+      recents && setSearchResult({ result: recents });
     }
   });
 
@@ -41,7 +42,21 @@ export const StoreProvider = ({ children }) => {
     dialog.current.close();
     saveInLocalStorage(searchResult.result[selected]);
     const { name, state, countryCode } = searchResult.result[selected];
+    setSelected(0);
     router.push(`/?city=${name}&state=${state.name}&country=${countryCode}`);
+  };
+
+  const removeRecent = (id) => {
+    const recents = JSON.parse(localStorage.getItem('recents'));
+    const existingIndex = recents.findIndex((recent) => recent._id === id);
+    recents.splice(existingIndex, 1);
+    if (recents.length) {
+      localStorage.setItem('recents', JSON.stringify(recents));
+      setSearchResult({ result: recents });
+    } else {
+      localStorage.removeItem('recents');
+      setSearchResult(null);
+    }
   };
 
   return (
@@ -55,6 +70,7 @@ export const StoreProvider = ({ children }) => {
         value,
         onChange,
         selectSearch,
+        removeRecent,
       }}
     >
       {children}

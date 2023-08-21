@@ -1,10 +1,10 @@
-"use client";
-import useStore from "@/hooks/useStore";
-import Image from "next/image";
-import React from "react";
+'use client';
+import useStore from '@/hooks/useStore';
+import Image from 'next/image';
+import React from 'react';
 
 export default function SearchItem({ type, location, active, onClick, index }) {
-  const { setSelected } = useStore();
+  const { setSelected, removeRecent } = useStore();
 
   return (
     <div
@@ -13,7 +13,7 @@ export default function SearchItem({ type, location, active, onClick, index }) {
     >
       <button
         className={`grid grid-cols-[max-content_1fr] gap-2.5 items-center px-5 py-3.5 bg-[--bg-modal-color]  rounded-e-xl max-w-full ${
-          active && "bg-red-500"
+          active && 'bg-red-500'
         }`}
         onClick={onClick}
       >
@@ -27,7 +27,7 @@ export default function SearchItem({ type, location, active, onClick, index }) {
           {location.name}, {location.state.name}, {location.countryCode}
         </p>
       </button>
-      {type === "location" ? (
+      {type === 'location' ? (
         active && (
           <button>
             <Image
@@ -39,7 +39,11 @@ export default function SearchItem({ type, location, active, onClick, index }) {
           </button>
         )
       ) : (
-        <button>
+        <button
+          onClick={() => {
+            removeRecent(location._id);
+          }}
+        >
           <Image
             src="/icon/close.svg"
             alt="Search Icon"
