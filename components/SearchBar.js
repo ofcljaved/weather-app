@@ -1,7 +1,7 @@
-"use client";
-import Image from "next/image";
-import KeyboardKey from "./KeyboardKey";
-import useStore from "@/hooks/useStore";
+'use client';
+import Image from 'next/image';
+import KeyboardKey from './KeyboardKey';
+import useStore from '@/hooks/useStore';
 
 export default function SearchBar() {
   const { dialog } = useStore();
@@ -12,16 +12,26 @@ export default function SearchBar() {
   return (
     <button
       onClick={openModal}
-      className="flex items-center text-start px-3.5 py-2.5 bg-[--glass-bg] rounded-xl gap-4 cursor-pointer"
+      className="flex items-center justify-center lg:justify-normal text-start bg-[--glass-bg] w-11 h-11 lg:w-auto lg:h-auto rounded-full lg:rounded-xl lg:gap-4 lg:px-3.5 lg:py-2.5"
     >
-      <Image src="/icon/search.svg" alt="Search Icon" width={30} height={30} />
-      <span className="w-48 text-[--tertiary-text] text-lg">
-        Search locations...
-      </span>
-      <div className="flex gap-3">
-        <KeyboardKey label={"Ctrl"} paddingX="px-1.5" />
-        <KeyboardKey label={"K"} paddingX="px-2.5" />
-      </div>
+      <Image
+        src="/icon/search.svg"
+        alt="Search Icon"
+        width={30}
+        height={30}
+        className="w-6 h-6 lg:w-auto lg:h-auto"
+      />
+      {window.innerWidth >= 500 && (
+        <>
+          <span className="w-48 text-[--tertiary-text] text-lg">
+            Search locations...
+          </span>
+          <div className="flex gap-3">
+            <KeyboardKey label={'Ctrl'} paddingX="px-1.5" />
+            <KeyboardKey label={'K'} paddingX="px-2.5" />
+          </div>
+        </>
+      )}
     </button>
   );
 }
