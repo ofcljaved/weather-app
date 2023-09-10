@@ -46,7 +46,7 @@ export default function WeatherContent({ weather }) {
   }, []);
 
   return (
-    <div className="grid gap-8 content-center grid-cols-4 grid-flow-dense font-medium text-xl text-[--tertiary-text] bg-[--glass-bg] self-center px-12 py-14 rounded-3xl w-fit tracking-wider">
+    <div className="col-span-full lg:col-auto grid gap-8 content-center grid-cols-4 grid-flow-dense font-medium text-xl text-[--tertiary-text] bg-[--glass-bg] self-center px-12 py-14 rounded-3xl w-fit tracking-wider">
       <h1 className="col-[2_/_-1] text-center text-5xl xl:text-7xl">
         {temp.temp}
         <sup>o</sup>

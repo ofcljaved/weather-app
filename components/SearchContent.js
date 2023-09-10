@@ -3,7 +3,7 @@ import SearchItem from './SearchItem';
 import useStore from '@/hooks/useStore';
 
 const NotFound = ({ text }) => (
-  <p className="mt-10 text-xl text-[--modal-primary-text] tracking-wide text-center">
+  <p className="mt-10 text-base lg:text-xl text-[--modal-primary-text] tracking-wide text-center">
     {text}
   </p>
 );
@@ -13,7 +13,7 @@ export default function SearchContent({ parentRef }) {
   if (value || searchResult) {
     return (
       <>
-        <h3 className="text-xl text-[--modal-primary-text] uppercase tracking-wider mx-6 my-3.5 font-semibold">
+        <h3 className="text-base lg:text-xl text-[--modal-primary-text] uppercase tracking-wider mx-5 lg:mx-6 my-3.5 font-semibold">
           {value ? 'Location' : 'Recent'}
         </h3>
         <div

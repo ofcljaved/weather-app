@@ -12,7 +12,7 @@ export default function SearchItem({ type, location, active, onClick, index }) {
       onMouseMove={() => setSelected(index)}
     >
       <button
-        className={`grid grid-cols-[max-content_1fr] gap-2.5 items-center px-5 py-3.5 bg-[--bg-modal-color]  rounded-e-xl max-w-full ${
+        className={`grid grid-cols-[max-content_1fr] gap-2.5 items-center px-4 lg:px-5 py-3 lg:py-3.5 bg-[--bg-modal-color]  rounded-e-xl max-w-full ${
           active && 'bg-red-500'
         }`}
         onClick={onClick}
@@ -22,8 +22,9 @@ export default function SearchItem({ type, location, active, onClick, index }) {
           alt="Search Icon"
           width={30}
           height={30}
+          className="w-5 h-5 lg:w-auto lg:h-auto"
         />
-        <p className="text-lg font-medium tracking-wide text-[--tertiary-text] text-ellipsis overflow-hidden whitespace-nowrap text-start">
+        <p className="text-sm lg:text-lg font-medium tracking-wide text-[--tertiary-text] text-ellipsis overflow-hidden whitespace-nowrap text-start">
           {location.name}, {location.state.name}, {location.countryCode}
         </p>
       </button>
@@ -35,6 +36,7 @@ export default function SearchItem({ type, location, active, onClick, index }) {
               alt="Search Icon"
               width={30}
               height={30}
+              className="w-5 h-5 lg:w-auto lg:h-auto"
             />
           </button>
         )
@@ -49,6 +51,7 @@ export default function SearchItem({ type, location, active, onClick, index }) {
             alt="Search Icon"
             width={30}
             height={30}
+            className="w-5 h-5 lg:w-auto lg:h-auto"
           />
         </button>
       )}

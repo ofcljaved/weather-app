@@ -9,7 +9,7 @@ export default function Main({ weather, children }) {
   // const position = useGeoLocation();
   return (
     <>
-      <main className="grid grid-cols-2 w-fit justify-self-center">
+      <main className="grid grid-cols-2 w-full lg:w-fit justify-self-center">
         {weather ? <WeatherContent weather={weather} /> : children}
         {/* <EarthCanvas />  */}
       </main>

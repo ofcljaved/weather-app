@@ -21,17 +21,14 @@ export default function SearchBar() {
         height={30}
         className="w-6 h-6 lg:w-auto lg:h-auto"
       />
-      {window.innerWidth >= 500 && (
-        <>
-          <span className="w-48 text-[--tertiary-text] text-lg">
-            Search locations...
-          </span>
-          <div className="flex gap-3">
-            <KeyboardKey label={'Ctrl'} paddingX="px-1.5" />
-            <KeyboardKey label={'K'} paddingX="px-2.5" />
-          </div>
-        </>
-      )}
+
+      <span className="hidden lg:inline w-48 text-[--tertiary-text] text-lg">
+        Search locations...
+      </span>
+      <div className="hidden lg:flex gap-3">
+        <KeyboardKey label={'Ctrl'} paddingX="px-1.5" />
+        <KeyboardKey label={'K'} paddingX="px-2.5" />
+      </div>
     </button>
   );
 }
