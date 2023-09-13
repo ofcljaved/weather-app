@@ -13,7 +13,7 @@ export default function SearchInput({ onKeyDown }) {
   };
   return (
     <div className="flex gap-3.5 lg:block px-5 py-4 lg:p-6 shadow-line-down">
-      <div className="px-4 lg:px-5 py-2.5 grid grid-cols-[max-content_auto_max-content] gap-2.5 lg:gap-5 bg-[--bg-modal-color] rounded-xl items-center">
+      <div className="flex-1 px-4 lg:px-5 py-2.5 grid grid-cols-[max-content_auto_max-content] gap-2.5 lg:gap-5 bg-[--bg-modal-color] rounded-xl items-center">
         <Image
           src="/icon/input_search.svg"
           alt="Search Icon"
