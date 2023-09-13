@@ -46,8 +46,8 @@ export default function WeatherContent({ weather }) {
   }, []);
 
   return (
-    <div className="col-span-full lg:col-auto grid gap-3 lg:gap-8 content-start lg:content-center grid-cols-4 grid-flow-dense font-medium text-xl text-[--tertiary-text] bg-[--glass-bg] self-start lg:self-center px-6 lg:px-12 py-5 lg:py-14 rounded-3xl w-fit tracking-wider">
-      <h1 className="col-span-full row-start-2 lg:row-auto lg:col-[2_/_-1] text-center text-5xl xl:text-7xl">
+    <div className="col-span-full lg:col-auto grid gap-y-5 gap-x-3 lg:gap-8 grid-cols-4 grid-flow-dense font-medium text-lg lg:text-xl text-[--tertiary-text] bg-[--glass-bg] self-start lg:self-center px-6 lg:px-12 py-5 lg:py-14 rounded-3xl w-fit tracking-wider mt-10 lg:mt-0">
+      <h1 className="col-span-full row-start-2 lg:row-auto lg:col-[2_/_-1] text-center text-6xl lg:text-5xl xl:text-7xl">
         {temp.temp}
         <sup>o</sup>
         {unit === 'celcius' ? 'C' : 'F'}|
@@ -56,22 +56,21 @@ export default function WeatherContent({ weather }) {
         </span>
       </h1>
       <img
-        className={`col-span-full lg:col-start-1 text-center justify-self-center lg:justify-self-auto max-w-[6rem] ${
+        className={`col-span-full lg:col-span-1 text-center justify-self-center lg:justify-self-auto -my-[5%] lg:my-auto max-w-[6rem] ${
           weather.weather[0].icon.includes('n') &&
           'invert-[0.7] brightness-[0.4]'
         }`}
         alt={weather.weather[0].main}
         src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`}
       />
-      {/* <p className="col-start-1 text-center text-7xl">&#9729;</p> */}
       <h2 className="col-span-full text-center text-4xl">
         {name}, {sys?.country}
       </h2>
-      <div className="col-[1_/_3]">
+      <div className="col-[1_/_4] row-start-4">
         <p>Sunrise: {sunrise}</p>
         <p>Sunset: {sunset}</p>
       </div>
-      <div className="col-[3_/_-1]">
+      <div className="col-[3_/_-1] row-start-4">
         <p className="text-end">
           Min: {temp.temp_min}
           <sup>o</sup>
@@ -83,7 +82,7 @@ export default function WeatherContent({ weather }) {
           {unit === 'celcius' ? 'C' : 'F'}
         </p>
       </div>
-      <p className="col-span-full text-center">
+      <p className="col-span-full text-center mt-2.5 lg:mt-auto">
         {date} | {time}
       </p>
     </div>

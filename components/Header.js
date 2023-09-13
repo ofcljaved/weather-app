@@ -22,7 +22,7 @@ function Icon({ src, alt, link }) {
 
 export default function Header() {
   return (
-    <header className="grid grid-cols-1 justify-items-start grid-flow-col gap-2.5 lg:gap-5 mx-5">
+    <header className="grid grid-cols-1 justify-items-start items-start grid-flow-col gap-2.5 lg:gap-5 mx-5">
       <SearchBar />
       {/* <div className="flex gap-5 flex-row-reverse lg:flex-row"> */}
       <Icon
@@ -36,7 +36,7 @@ export default function Header() {
         link={'https://github.com/Ofcl-Javed'}
       />
       <div
-        className={`${lato.className} logo bg-[--primary-color] px-4 pt-3 md:pt-4 pb-12 md:pb-20 -mt-4 md:-mt-6 -mx-5 md:mx-auto col-start-1 lg:col-start-auto`}
+        className={`${lato.className} logo bg-[--primary-color] px-4 pt-3 md:pt-4 pb-12 md:pb-20 -mt-4 md:-mt-6 -mx-5 md:mx-0 col-start-1 lg:col-start-auto`}
       >
         <p className="text-2xl lg:text-4xl font-bold tracking-wider text-center">
           WEATHER <br /> 360
