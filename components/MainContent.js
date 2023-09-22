@@ -3,7 +3,7 @@ import { lato } from '@/utils/font';
 export default function MainContent() {
   return (
     <div
-      className={`${lato.className} col-span-full lg:col-auto font-bold grid gap-6 lg:gap-5 content-start lg:content-center tracking-widest px-6 lg:px-0 text-center lg:text-left mt-10 lg:mt-0`}
+      className={`${lato.className} col-span-full lg:col-auto row-[1/3] lg:row-auto font-bold grid gap-6 lg:gap-5 content-start lg:content-center tracking-widest px-6 lg:px-0 text-center lg:text-left mt-10 lg:mt-0 z-10`}
     >
       <h1 className="text-4xl lg:text-5xl my-1">Weather 360</h1>
       <h2 className="text-3xl lg:text-4xl max-w-[23ch] text-center lg:text-left">

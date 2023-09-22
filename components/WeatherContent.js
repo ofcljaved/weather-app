@@ -46,8 +46,8 @@ export default function WeatherContent({ weather }) {
   }, []);
 
   return (
-    <div className="col-span-full lg:col-auto grid gap-y-5 gap-x-3 xl:gap-8 grid-cols-4 grid-flow-dense font-medium text-lg xl:text-xl text-[--tertiary-text] bg-[--glass-bg] self-start lg:self-center px-6 xl:px-12 py-5 lg:py-8 xl:py-14 rounded-3xl w-fit tracking-wider mt-10 lg:mt-0">
-      <h1 className="col-span-full row-start-2 lg:row-auto lg:col-[2_/_-1] text-center text-6xl lg:text-5xl xl:text-7xl mt-auto">
+    <div className="col-span-full lg:col-auto row-[1/3] lg:row-auto grid gap-y-5 gap-x-3 xl:gap-8 grid-cols-4 grid-flow-dense font-medium text-lg xl:text-xl text-[--tertiary-text] bg-[--glass-bg] self-start lg:self-center px-6 xl:px-12 py-5 lg:py-8 xl:py-14 rounded-3xl w-fit tracking-wider mt-10 lg:mt-0 z-10">
+      <h1 className="col-span-full row-auto lg:col-[2_/_-1] text-center text-6xl lg:text-5xl xl:text-7xl mt-auto">
         {temp.temp}
         <sup>o</sup>
         {unit === 'celcius' ? 'C' : 'F'}|
@@ -56,7 +56,7 @@ export default function WeatherContent({ weather }) {
         </span>
       </h1>
       <img
-        className={`col-span-full lg:col-span-1 text-center justify-self-center lg:justify-self-auto -my-[5%] lg:my-auto max-w-[6rem] ${
+        className={`hidden lg:block col-span-1 text-center justify-self-auto my-auto max-w-[6rem] ${
           weather.weather[0].icon.includes('n') &&
           'invert-[0.7] brightness-[0.4]'
         }`}

@@ -1,17 +1,15 @@
 'use client';
 import EarthCanvas from '@/components/EarthCanvas';
-import WeatherContent from '@/components/WeatherContent';
 import SearchDialog from '@/components/SearchDialog';
 import SearchFooter from '@/components/SearchFooter';
-import useGeoLocation from '@/hooks/useGeoLocation';
+import WeatherContent from '@/components/WeatherContent';
 
 export default function Main({ weather, children }) {
-  // const position = useGeoLocation();
   return (
     <>
-      <main className="grid grid-cols-2 w-full lg:w-fit justify-self-center justify-items-center lg:justify-items-start">
+      <main className="grid grid-cols-2 w-full justify-self-center justify-items-center lg:justify-items-end">
         {weather ? <WeatherContent weather={weather} /> : children}
-        {/* <EarthCanvas />  */}
+        <EarthCanvas />
       </main>
       <SearchDialog>
         <SearchFooter />
