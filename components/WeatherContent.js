@@ -5,10 +5,15 @@ import { useEffect, useState } from 'react';
 
 const toLocalTime = (timeString) => {
   if (!timeString) return;
-  let [time, meridiem] = new Date(timeString * 1000)
-    .toLocaleTimeString()
-    .split(' ');
-  return time.slice(0, time.lastIndexOf(':')) + meridiem.toUpperCase();
+  const date = new Date(timeString * 1000);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  const meridiem = hours >= 12 ? 'PM' : 'AM';
+
+  hours = hours % 12 || 12;
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+
+  return `${hours}:${minutes}${meridiem}`;
 };
 
 export default function WeatherContent({ weather }) {
